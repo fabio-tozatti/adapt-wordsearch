@@ -1,0 +1,64 @@
+{
+  "$anchor": "pando-wordsearch-component",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "$merge": {
+    "source": {
+      "$ref": "component"
+    },
+    "with": {
+      "required": [
+        "_items"
+      ],
+      "properties": {
+        "_supportedLayout": {
+          "type": "string",
+          "title": "Supported layout",
+          "default": "full-width",
+          "enum": [
+            "full-width"
+          ],
+          "_adapt": {
+            "editorOnly": true
+          }
+        },
+        "instruction": {
+          "type": "string",
+          "title": "Instrução",
+          "default": "Encontre os pares das imagens.",
+          "_adapt": {
+            "translatable": true
+          }
+        },
+        "_setCompletionOn": {
+          "type": "string",
+          "title": "Set completion on:",
+          "description": "Whether completion is based on the learner having viewed all the items - or just having viewed the component",
+          "default": "allItems",
+          "enum": [
+            "inview",
+            "allItems"
+          ],
+          "_backboneForms": "Select"
+        },
+        "_items": {
+          "type": "array",
+          "title": "Items",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "title": "Título do item",
+                "default": "",
+                "_adapt": {
+                  "translatable": true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
