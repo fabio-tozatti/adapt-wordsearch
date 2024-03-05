@@ -1,9 +1,7 @@
 define([
     "core/js/adapt",
     "core/js/views/componentView",
-    "core/js/models/componentModel",
-    "../libraries/utility.js",
-    "../libraries/wordsearch.js"
+    "core/js/models/componentModel"
 ], function(Adapt, ComponentView, ComponentModel) {
 
     var MyPluginView = ComponentView.extend({
@@ -14,7 +12,6 @@ define([
       },
 
        initialize: function () {
-
          var settings = {
             'directions': ['W', 'N', 'WN', 'EN'],
             'gridSize': 10,
@@ -22,20 +19,7 @@ define([
             'wordsList' : [],
             'debug': false
          }
-
-         this.wordSearch = new WordSearch(this, settings);
-
-         var gameAreaEl = document.getElementById('ws-area');
-         var gameobj = gameAreaEl.wordSearch();
-   
-         // Put words into `.ws-words`
-         var words = gameobj.settings.wordsList, wordsWrap = document.querySelector('.ws-words');
-         for (i in words) {
-           var liEl = document.createElement('li');
-           liEl.setAttribute('class', 'ws-word');
-           liEl.innerText = words[i];
-           wordsWrap.appendChild(liEl);
-         }
+         console.log(settings)
       }
     });
 
